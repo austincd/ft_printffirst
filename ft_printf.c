@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/27 05:19:32 by adaly             #+#    #+#             */
-/*   Updated: 2017/06/12 23:16:40 by adaly            ###   ########.fr       */
+/*   Updated: 2017/06/12 23:23:00 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,8 +78,8 @@ va_list args, char **types)
 			ft_unsigned_integer_types(conversion, args);
 		if (ft_strchr(types[1], conversion->type))
 			ft_signed_integer_types(conversion, args);
-//		if (ft_strchr(types[2], conversion->type))
-//			ft_floating_types(conversion, args);
+		if (ft_strchr(types[2], conversion->type))
+			ft_floating_types(conversion, args);
 		if (ft_strchr(types[3], conversion->type))
 			ft_other_types(conversion, args);
 		if (conversion->type == 'p' || conversion->type == 'P')
