@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/27 05:19:32 by adaly             #+#    #+#             */
-/*   Updated: 2017/06/12 23:06:19 by adaly            ###   ########.fr       */
+/*   Updated: 2017/06/12 23:01:28 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,7 @@
 static long long		ft_write_to_fd(t_slist *list, int fd)
 {
 	long long	chars;
-	void		*new;
 
-	new = NULL;
 	chars = 0;
 	while (list)
 	{
@@ -26,12 +24,10 @@ static long long		ft_write_to_fd(t_slist *list, int fd)
 			list->string = ft_itoa(chars);
 			list->size = ft_strlen(list->string);
 		}
-		chars = ft_rememcat(&new, list->string, chars, list->size);
+		chars += write(fd, list->string, list->size)
 		ft_strdel_plus(&(list->string));
 		list = list->next;
 	}
-	write(fd, new, chars);
-	free(new);
 	return (chars);
 }
 
